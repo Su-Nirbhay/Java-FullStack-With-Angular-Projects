@@ -1,0 +1,177 @@
+/* Base Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body, html {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to bottom right, #f0f4f8, #dfefff);
+    min-height: 100vh;
+  }
+  
+  /* Top Navigation */
+
+  .top-bar {
+    width: 100%;
+    background: #333;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2% 2.5%;
+  }
+  
+  .logo-name {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo {
+    width: 100px;
+    height: 100px;
+    margin-right: 10px;
+    border-radius: 100px;
+  }
+
+  .hotel-name {
+    font-size: 3rem;
+    text-transform: uppercase; 
+    font-family: 'Georgia', serif;
+    letter-spacing: 2px;
+    text-align: center;
+    margin-left: 30px;
+  }
+
+  .top-nav {
+    background-color: #2c3e50;
+    color: white;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+  
+  .top-nav h2 {
+    font-size: 24px;
+  }
+  
+  .nav-buttons button {
+    background: transparent;
+    border: 1px solid #ecf0f1;
+    color: white;
+    padding: 10px 20px;
+    margin-left: 15px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .nav-buttons button:hover {
+    background: #34495e;
+  }
+  
+  /* Booking Section */
+  .booking-section {
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .booking-container {
+    background: white;
+    max-width: 700px;
+    width: 100%;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+  }
+  
+  .booking-container h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 25px;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    margin-top: 15px;
+    font-weight: 600;
+    color: #34495e;
+  }
+  
+  input, select {
+    padding: 12px;
+    font-size: 16px;
+    margin-top: 6px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background: #fafafa;
+  }
+  
+  input:focus, select:focus {
+    border-color: #3498db;
+    background: #fff;
+    outline: none;
+  }
+  
+  /* Guest Section */
+  .guest-section {
+    margin-top: 30px;
+  }
+  
+  .guest-section h3 {
+    margin-bottom: 10px;
+    color: #2c3e50;
+  }
+  
+  .guest-box {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    align-items: center;
+  }
+  
+  .guest-box input {
+    flex: 1;
+  }
+  
+  .remove-btn {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .remove-btn:hover {
+    background: #c0392b;
+  }
+  
+  /* Buttons */
+  .add-guest-btn, .submit-btn {
+    margin-top: 15px;
+    background-color: #3498db;
+    color: white;
+    font-size: 16px;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .add-guest-btn:hover,
+  .submit-btn:hover {
+    background-color: #2980b9;
+  }
+  

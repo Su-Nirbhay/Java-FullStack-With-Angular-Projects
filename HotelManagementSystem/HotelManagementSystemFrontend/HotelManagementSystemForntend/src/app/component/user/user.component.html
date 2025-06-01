@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Bookings</title>
+  <link rel="stylesheet" href="my-bookings.css" />
+</head>
+<body>
+  <header>
+    <div class="top-bar">
+      <div class="logo-name">
+        <img src="hotel_logo_image.webp" alt="Hotel Logo" class="logo">
+        <h1 class="hotel-name">{{title}}</h1>
+      </div>
+      <div class="auth-buttons">
+        <a class="link" (click)="back()">Back</a>
+      </div>
+    </div>
+  </header>
+  <!-- <header class="header">
+    <h1>My Bookings</h1>
+  </header> -->
+
+  <main class="bookings-container">
+    <h3 class="sticky-heading">My Bookings</h3>
+    <!-- Booking Card 1 -->
+    <div class="booking-card">
+      <div class="booking-info">
+        <h2>Deluxe Room</h2>
+        <p><strong>Booking ID:</strong> #123456</p>
+        <p><strong>Check-in:</strong> April 20, 2025</p>
+        <p><strong>Check-out:</strong> April 25, 2025</p>
+        <p><strong>Guests:</strong> 2 Adults</p>
+      </div>
+      <div class="booking-actions">
+        <button class="btn modify-btn">Modify Reservation</button>
+        <button class="btn cancel-btn">Cancel Reservation</button>
+      </div>
+    </div>
+
+    <!-- Booking Card 2 -->
+    <div class="booking-card">
+      <div class="booking-info">
+        <h2>Suite Room</h2>
+        <p><strong>Booking ID:</strong> #789012</p>
+        <p><strong>Check-in:</strong> May 10, 2025</p>
+        <p><strong>Check-out:</strong> May 15, 2025</p>
+        <p><strong>Guests:</strong> 2 Adults, 1 Child</p>
+      </div>
+      <div class="booking-actions">
+        <button class="btn modify-btn">Modify Reservation</button>
+        <button class="btn cancel-btn">Cancel Reservation</button>
+      </div>
+    </div>
+
+    <!-- Booking Card 3 -->
+    <div class="booking-card">
+      <div class="booking-info">
+        <h2>Suite Room</h2>
+        <p><strong>Booking ID:</strong> #789012</p>
+        <p><strong>Check-in:</strong> May 10, 2025</p>
+        <p><strong>Check-out:</strong> May 15, 2025</p>
+        <p><strong>Guests:</strong> 2 Adults, 1 Child</p>
+      </div>
+      <div class="booking-actions">
+        <button class="btn modify-btn">Modify Reservation</button>
+        <button class="btn cancel-btn">Cancel Reservation</button>
+      </div>
+    </div>
+
+    <!-- Booking Card  4-->
+    <div class="booking-card">
+      <div class="booking-info">
+        <h2>Suite Room</h2>
+        <p><strong>Booking ID:</strong> #789012</p>
+        <p><strong>Check-in:</strong> May 10, 2025</p>
+        <p><strong>Check-out:</strong> May 15, 2025</p>
+        <p><strong>Guests:</strong> 2 Adults, 1 Child</p>
+      </div>
+      <div class="booking-actions">
+        <button class="btn modify-btn">Modify Reservation</button>
+        <button class="btn cancel-btn">Cancel Reservation</button>
+      </div>
+    </div>
+    <!-- Add more booking cards as needed -->
+  </main>
+</body>
+</html>

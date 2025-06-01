@@ -1,0 +1,9 @@
+package com.reservation.service;
+
+import com.reservation.entity.User;
+
+public interface IReservation {
+	
+	public User makeReservation(User user);
+
+}

@@ -1,0 +1,16 @@
+spring.application.name=Gateway
+server.port=8762
+
+eureka.client.service-url.default-zone=http://localhost:8761/eureka/
+eureka.client.register-with-eureka=true
+eureka.client.fetch-registry=true
+
+spring.web.resources.add-mappings=false
+
+spring.cloud.gateway.discovery.locator.enabled=true
+spring.cloud.gateway.discovery.locator.lower-case-service-id=true
+
+
+spring.cloud.gateway.routes[0].id=Employee
+spring.cloud.gateway.routes[0].uri=http://localhost:9092
+spring.cloud.gateway.routes[0].predicates[0]=Path=/employee/**

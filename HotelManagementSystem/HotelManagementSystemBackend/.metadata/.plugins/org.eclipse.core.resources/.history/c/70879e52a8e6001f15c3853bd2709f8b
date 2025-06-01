@@ -1,0 +1,9 @@
+spring.application.name=Gateway
+spring.application.name=Gateway_Registry
+server.port=8761
+eureka.client.register-with-eureka=true
+eureka.client.fetch-registry=true
+
+spring.cloud.gateway.routes[0].id=Employee
+spring.cloud.gateway.routes[0].uri=http://localhost:9092
+spring.cloud.gateway.routes[0].predicates=Path=/employee/**

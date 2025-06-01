@@ -1,0 +1,38 @@
+package com.reservation;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.http.HttpMessageConverters;
+import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.cloud.openfeign.support.SpringEncoder;
+import org.springframework.cloud.openfeign.support.SpringMvcContract;
+import org.springframework.context.annotation.Bean;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import feign.Contract;
+import feign.codec.Encoder;
+import org.springframework.cloud.openfeign.support.SpringEncoder;
+import org.springframework.cloud.openfeign.support.SpringMvcContract;
+import org.springframework.http.converter.HttpMessageConverters;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.context.annotation.Bean;
+
+@SpringBootApplication
+@EnableFeignClients(basePackages = "com.*")
+//@EnableTransactionManagement
+public class ReservationApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(ReservationApplication.class, args);
+	}
+
+	@Bean
+	public Encoder feignEncoder() {
+	    return new SpringEncoder(() -> new HttpMessageConverters(new MappingJackson2HttpMessageConverter()));
+	}
+
+	@Bean
+	public Contract feignContract() {
+	    return new SpringMvcContract();
+	}
+
+}

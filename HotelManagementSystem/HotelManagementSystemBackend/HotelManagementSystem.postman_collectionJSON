@@ -1,0 +1,416 @@
+{
+	"info": {
+		"_postman_id": "4a0ab993-c1cf-40f2-a9cf-ace2cb74e9c0",
+		"name": "HotelManagementSystem",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39329341"
+	},
+	"item": [
+		{
+			"name": "Employee",
+			"item": [
+				{
+					"name": "AddEmployee",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"Raja\",\r\n    \"age\" : 18,\r\n    \"email\" : \"abc@gmail.com\",\r\n    \"address\" : \r\n        {\r\n            \"city\" : \"Gaya\",\r\n            \"postalCode\" : \"112233\" , \r\n            \"state\" : \"Janakpur\" ,\r\n            \"dist\" : \"Bharat\"\r\n        },\r\n    \"phone\" : 1000000001,\r\n    \"designation\" :\"Manager\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9092/employee/addemployee",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9092",
+							"path": [
+								"employee",
+								"addemployee"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateEmployee",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"Radha_Krishna\",\r\n    \"age\" : 24,\r\n    \"email\" : \"radha_krishna@gmail.com\",\r\n    \"address\" :\r\n    {\r\n        \"city\" : \"Barsana\",\r\n        \"postalCode\" : 824211,\r\n        \"state\" : \"UP\",\r\n        \"dist\" : \"Mathura\"\r\n    },\r\n    \"phone\" : 7050211318\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9092/employee/updateemployee/4564561234",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9092",
+							"path": [
+								"employee",
+								"updateemployee",
+								"4564561234"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetEmployee",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9092/employee/getemployee",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9092",
+							"path": [
+								"employee",
+								"getemployee"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get By Phone",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9092/employee/getemployeebyphone/4564561234",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9092",
+							"path": [
+								"employee",
+								"getemployeebyphone",
+								"4564561234"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get By Designation",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9092/employee/getemployeebydesignation/Deignation",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9092",
+							"path": [
+								"employee",
+								"getemployeebydesignation",
+								"Deignation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteEmployee ByPhone Copy",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9092/employee/removeemployee/4564561231",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9092",
+							"path": [
+								"employee",
+								"removeemployee",
+								"4564561231"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateSalary",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9092/employee/updateemployee/4564561231/50000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9092",
+							"path": [
+								"employee",
+								"updateemployee",
+								"4564561231",
+								"50000"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "RoomDetails",
+			"item": [
+				{
+					"name": "AddHotelDetails",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Sunrise Hotel\",\r\n  \"roomType\": {\r\n    \"AC Single Bed\": 50,\r\n    \"AC Double Bed\": 50,\r\n    \"NON-AC Single Bed\": 50,\r\n    \"NON-AC Double Bed\": 50\r\n  },\r\n  \"price\": {\r\n    \"AC Single Bed\": 1500,\r\n    \"AC Double Bed\": 2500,\r\n    \"NON-AC Single Bed\": 1000,\r\n    \"NON-AC Double Bed\": 2000\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9091/hotel/addhoteldetails",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9091",
+							"path": [
+								"hotel",
+								"addhoteldetails"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetRoomOfType",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "GetPriceOfType",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9091/hotel/getprice/NON-AC Double Bed",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9091",
+							"path": [
+								"hotel",
+								"getprice",
+								"NON-AC Double Bed"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddTypesAndRooms",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9091/hotel/addtypesandrooms/AC/15",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9091",
+							"path": [
+								"hotel",
+								"addtypesandrooms",
+								"AC",
+								"15"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdatePrice",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9091/hotel/addtypesandrooms/AC/15",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9091",
+							"path": [
+								"hotel",
+								"addtypesandrooms",
+								"AC",
+								"15"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateRoom",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9091/hotel/updateroomsafterbookingorcancelation/AC/15",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9091",
+							"path": [
+								"hotel",
+								"updateroomsafterbookingorcancelation",
+								"AC",
+								"15"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RemoveTypes",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9091/hotel/removetypesandrooms/AC",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9091",
+							"path": [
+								"hotel",
+								"removetypesandrooms",
+								"AC"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reservation",
+			"item": [
+				{
+					"name": "MakeBookings",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9093/reservation/makebooking",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9093",
+							"path": [
+								"reservation",
+								"makebooking"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MyBooking",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9093/reservation/mybooking/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9093",
+							"path": [
+								"reservation",
+								"mybooking",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AllBookings",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9093/reservation/allbooking",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9093",
+							"path": [
+								"reservation",
+								"allbooking"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CancelBookings",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9093/reservation/cancelbooking/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9093",
+							"path": [
+								"reservation",
+								"cancelbooking",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
