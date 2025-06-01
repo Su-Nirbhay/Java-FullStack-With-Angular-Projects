@@ -1,0 +1,121 @@
+package com.hotels.service;
+
+import java.time.LocalDate;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Service;
+
+import com.hotels.entity.HotelDetails;
+import com.hotels.repository.HotelRepository;
+
+@Service
+public class HotelServiceImpl implements IHotelService{
+
+	@Autowired
+	HotelRepository hotelRepository;
+	
+	@Override
+	public List<HotelDetails> getHotelDetails(){
+		return hotelRepository.findAll();
+	}
+	
+	@Override
+	public String addHotelDetails(HotelDetails hotelDetails) {
+		LinkedHashMap<LocalDate , Integer> rooms = new LinkedHashMap<>();
+		LocalDate today = LocalDate.now();
+		for(int i=0;i<30;i++) {
+			rooms.put(today.plusDays(i), 50);
+		}
+		HashMap<String , LinkedHashMap<LocalDate , Integer>> roomType = new HashMap();
+		roomType.put("AC", rooms);
+		hotelDetails.setRoomType(roomType);
+		hotelRepository.save(hotelDetails);
+		return "Added Successfully";
+	}
+
+	@Override
+	public String addTypesAndRooms(String type, int rooms) {
+		/*
+		 * List<HotelDetails> obj = hotelRepository.findAll(); HotelDetails
+		 * HotelDetailsObj = obj.get(0); HashMap<String, Integer> map =
+		 * HotelDetailsObj.getRoomType(); map.put(type, rooms);
+		 * hotelRepository.save(HotelDetailsObj);
+		 */
+		return "Added Successfully";
+	}
+
+	@Override
+	public String updatePrice(String type , int price) {
+		List<HotelDetails> obj = hotelRepository.findAll();
+		HotelDetails HotelDetailsObj = obj.get(0);
+		HashMap<String, Integer> map = HotelDetailsObj.getPrice();
+		map.put(type, price);
+		hotelRepository.save(HotelDetailsObj);
+		return "Added Successfully";
+	}
+	
+	@Override
+	public int getRooms(String type) {
+		/*
+		 * List<HotelDetails> obj = hotelRepository.findAll(); HotelDetails
+		 * HotelDetailsObj = obj.get(0); HashMap<String, Integer> map =
+		 * HotelDetailsObj.getRoomType(); return map.get(type);
+		 */
+		return 0;
+	}
+	
+	@Override
+	public int getPrice(String type) {
+		List<HotelDetails> obj = hotelRepository.findAll();
+		HotelDetails HotelDetailsObj = obj.get(0);
+		HashMap<String, Integer> map = HotelDetailsObj.getPrice();
+		return map.get(type);
+	}
+
+	@Override
+	public String updateRoomsafterBookingOrCancelation(String type, int rooms, String BookingOrCancel) {
+		/*
+		 * List<HotelDetails> obj = hotelRepository.findAll(); HotelDetails
+		 * HotelDetailsObj = obj.get(0); HashMap<String, Integer> map =
+		 * HotelDetailsObj.getRoomType(); if(map.containsKey(type)) {
+		 * if(BookingOrCancel.equals("Booking")) map.put(type, map.get(type) - rooms);
+		 * if(BookingOrCancel.equals("Cancellation")) map.put(type, map.get(type) +
+		 * rooms); } hotelRepository.save(HotelDetailsObj);
+		 */
+		return "Success";
+	}
+
+	@Override
+	public String removeTypesAndRooms(String type) {
+		/*
+		 * List<HotelDetails> obj = hotelRepository.findAll(); HotelDetails
+		 * HotelDetailsObj = obj.get(0); HashMap<String, Integer> roomType =
+		 * HotelDetailsObj.getRoomType(); if(roomType.containsKey(type)) {
+		 * roomType.remove(type); } HashMap<String, Integer> price =
+		 * HotelDetailsObj.getPrice(); if(price.containsKey(type)) { price.remove(type);
+		 * } hotelRepository.save(HotelDetailsObj);
+		 */
+		return "Success";
+	}
+	
+	
+	public void addRoomsToDB() {
+		LinkedHashMap<LocalDate , Integer> rooms = new LinkedHashMap<>();
+		LocalDate today = LocalDate.now();
+		for(int i=0;i<30;i++) {
+			rooms.put(today.plusDays(i), 50);
+		}
+	}
+	
+	@Scheduled(cron = "0 * * * * ?")
+	public void addRoomsForNextDay() {
+		List<HotelDetails> list = hotelRepository.findAll();
+		System.out.println("WORKING");
+		HotelDetails obj = list.get(1);
+	}
+
+}

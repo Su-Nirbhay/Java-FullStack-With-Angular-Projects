@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hotel Reservation</title>
+  <link rel="stylesheet" href="booking.css" />
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+          <div class="logo-name">
+            <img src="hotel_logo_image.webp" alt="Hotel Logo" class="logo">
+            <h1 class="hotel-name">{{title}}</h1>
+          </div>
+          <div class="nav-buttons">
+            <button (click)="myProfile()">My Profile</button>
+          </div>
+        </div>
+    </header>
+
+
+  <div class="booking-section">
+    <div class="booking-container">
+      <h1>Reserve Your Room</h1>
+      <form id="booking-form">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" required />
+
+        <label for="email">Email ID</label>
+        <input type="email" id="email" required />
+
+        <label for="contact">Contact Number</label>
+        <input type="tel" id="contact" required />
+
+        <label for="room-type">Room Type</label>
+        <select id="room-type" required>
+          <option value="">Select</option>
+          <option value="Single AC">Single Bed AC</option>
+          <option value="Double AC">Double Bed AC</option>
+          <option value="Suite">Suite</option>
+        </select>
+
+        <label for="rooms">Number of Rooms</label>
+        <input type="number" id="rooms" min="1" required />
+
+        <label for="checkin">Check-in Date</label>
+        <input type="date" id="checkin" required />
+
+        <label for="checkout">Check-out Date</label>
+        <input type="date" id="checkout" required />
+
+        <div class="guest-section">
+          <h3>Guest Details</h3>
+          <div id="guest-list"></div>
+          <button type="button" class="add-guest-btn" onclick="addGuest()">+ Add Guest</button>
+        </div>
+
+        <button type="submit" class="submit-btn">Submit Booking</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- <script>
+    function addGuest() {
+      const guestList = document.getElementById("guest-list");
+
+      const guestBox = document.createElement("div");
+      guestBox.classList.add("guest-box");
+
+      const nameInput = document.createElement("input");
+      nameInput.type = "text";
+      nameInput.placeholder = "Guest Name";
+      nameInput.required = true;
+
+      const ageInput = document.createElement("input");
+      ageInput.type = "number";
+      ageInput.placeholder = "Age";
+      ageInput.required = true;
+
+      const removeBtn = document.createElement("button");
+      removeBtn.type = "button";
+      removeBtn.textContent = "✕";
+      removeBtn.classList.add("remove-btn");
+      removeBtn.onclick = () => guestBox.remove();
+
+      guestBox.appendChild(nameInput);
+      guestBox.appendChild(ageInput);
+      guestBox.appendChild(removeBtn);
+
+      guestList.appendChild(guestBox);
+    }
+  </script> -->
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hotel Landing Page</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header Section -->
+  <header>
+    <div class="top-bar">
+      <div class="logo-name">
+        <img src="hotel_logo_image.webp" alt="Hotel Logo" class="logo">
+        <h1 class="hotel-name">{{title}}</h1>
+      </div>
+
+      <div class="auth-buttons" *ngIf="!validate">
+        <button (click) = "login()" class="btn" >Login</button>
+        <button (click) = "signup()" class="btn">Sign Up</button>
+      </div>
+
+      <div class="auth-buttons" *ngIf="validate">
+        <button (click) = "myProfile()" class="btn">My Profile</button>
+        <button (click) = "logout()" class="btn">Logout</button>
+      </div>
+
+    </div>
+  </header>
+
+  
+
+  <!-- Room Types Section -->
+  <main>
+    <div class="room-container">
+      <div class="room-card">
+        <img src="single_bed-room_image.jpg" alt="room-image" class="room-image">
+        <div class="room-details">
+          <h2> <a (click) = "login()">Single Bed AC Room = {{ACSingleBed}}</a> </h2>
+          <p>Comfortable air-conditioned room for a relaxing stay.</p>
+        </div>
+      </div>
+     
+      <div class="room-card">
+        <img src="single_bed-room_image.jpg" alt="room-image" class="room-image">
+        <div class="room-details">
+          <h2> <a (click) = "login()">Single Bed Non-AC Room = {{NONACSingleBed}} </a> </h2>
+          <p>Cozy and affordable rooms without air conditioning.</p>
+        </div>
+      </div>
+      <div class="room-card">
+        <img src="double_bed_room_image.jpg" alt="room-image" class="room-image">
+        <div class="room-details">
+          <h2> <a (click) = "login()">Double Bed AC Room = {{ACDoubleBed}} </a></h2>
+          <p>Perfect for solo travelers seeking comfort and privacy.</p>
+        </div>
+      </div>
+      <div class="room-card">
+        <img src="double_bed_room_image.jpg" alt="room-image" class="room-image">
+        <div class="room-details">
+          <h2> <a (click) = "login()">Double Bed Non-AC Room = {{NONACDoubleBed}} </a></h2>
+          <p>Ideal for couples or friends traveling together.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer Section -->
+  <footer>
+    <div class="footer-content">
+      <h3>Contact Us</h3>
+      <p>Phone: {{contact_nr}} | Email: {{email}}
+      <p>Experience luxury and comfort at Hotel Paradise.</p>
+    </div>
+  </footer>
+
+
+
+<!--Login Page PopUp-->
+<div id="loginModal" class="modal" *ngIf="login_popup">
+  <div class="modal-content">
+    <span class="close" (click)="popup()">&times;</span>
+    <h2>Login</h2>
+    <form>
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="Enter your email" required>
+
+      <label for="password">Password</label>
+      <input type="password" id="password" placeholder="Enter your password" required>
+
+      <button type="submit" class="login-btn" (click)="validation()">Login</button>
+      <a (click) = "signup()" class="link">Sign Up</a>
+    </form>
+  </div>
+</div>
+
+
+<!-- Sign-Up Page PopUp -->
+<div id="signUpModal" class="modal" *ngIf="signup_popup">
+  <div class="modal-content">
+    <span class="close" (click)="popup()">&times;</span>
+    <h2>Sign Up</h2>
+    <form>
+      <label for="name">Full Name</label>
+      <input type="text" id="name" placeholder="Enter your full name" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="Enter your email" required>
+
+      <label for="phone">Phone</label>
+      <input type="tel" id="phone" placeholder="Enter your phone number" required>
+
+      <label for="age">Age</label>
+      <input type="number" id="age" placeholder="Enter your age" required>
+
+      <label for="password">Password</label>
+      <input type="password" id="password" placeholder="Create a password" required>
+
+      <button type="submit" class="signup-btn">Sign Up</button>
+      <a (click) = "login()" class="link">Login</a>
+    </form>
+  </div>
+</div>
+
+
+
+</body>
+</html>
+
+
+

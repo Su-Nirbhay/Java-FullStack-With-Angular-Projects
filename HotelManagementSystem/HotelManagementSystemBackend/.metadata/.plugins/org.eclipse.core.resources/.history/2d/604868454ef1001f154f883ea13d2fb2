@@ -1,0 +1,94 @@
+package com.reservation.service;
+
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.time.LocalDate;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.reservation.communication.HotelDetailsService;
+import com.reservation.entity.ReservationUser;
+import com.reservation.entity.SequenceGenerator;
+import com.reservation.exception.NoReservationExistException;
+import com.reservation.exception.RoomNotAvailableException;
+import com.reservation.repository.ReservationRepository;
+
+@Service
+public class ReservationImpl implements IReservation{
+
+	@Autowired
+	ReservationRepository reservationRepository;
+	
+	@Autowired
+    private SequenceGenerator sequenceGenerator;
+	
+	
+	
+	@Autowired
+	HotelDetailsService detailsService;
+	
+	@Override
+	@Transactional
+	public long makeReservation(ReservationUser user) throws RoomNotAvailableException {
+		String roomType = user.getRoomType();
+		LocalDate checkIn = user.getCheckIn();
+		LocalDate checkOut = user.getCheckOut();
+		int room = user.getRoom();
+		int availableRooms = detailsService.checkAvailability(roomType , checkIn , checkOut);
+		if(availableRooms >= user.getRoom()) {
+			detailsService.updateRoomsafterBookingOrCancelation(roomType , room , checkIn , checkOut , "Booking");
+			int bill = calculateBill(user.getRoomType(), user.getRoom());
+			user.setBill(bill);
+			ReservationUser Obj = reservationRepository.save(user);
+			return Obj.getId();
+		}
+		throw new RoomNotAvailableException("These many rooms are currently unavailable");
+		
+	}
+	
+	@Override
+	@Transactional
+	public String cancelReservation(Long BookingId) throws NoReservationExistException {
+		ReservationUser user = reservationRepository.findById(BookingId).get();
+		if(user != null) {
+			detailsService.updateRoomsafterBookingOrCancelation(user.getRoomType() , user.getRoom() , user.getCheckIn() , user.getCheckOut() , "Cancel");
+			reservationRepository.delete(user);
+		}
+		throw new NoReservationExistException("No Bookings Exist");
+	}
+
+	@Override
+	public int calculateBill(String roomType, int room) {
+		int totalBill = detailsService.getPrice(roomType)*room;
+		return totalBill;
+	}
+
+	@Override
+	public List<ReservationUser> myBookings(long contact) throws NoReservationExistException{
+		List<ReservationUser> user = reservationRepository.findAll().stream().filter(item -> item.getContact() == contact).toList();
+		if(!user.isEmpty())
+			return user;
+		throw new NoReservationExistException("No Bookings Exists");
+	}
+
+	@Override
+	public List<ReservationUser> allBookings() throws NoReservationExistException{
+		List<ReservationUser> allBookings = reservationRepository.findAll();
+		if(!allBookings.isEmpty())
+			return allBookings;
+		throw new NoReservationExistException("No Bookings Exists");
+	}
+
+	@Override
+	public String updateStatus(long BookingId , String status) {
+		ReservationUser user = reservationRepository.findById(BookingId).get();
+		user.setStatus(status);
+		reservationRepository.save(user);
+		return "Status Updated";
+	}
+	
+	
+}

@@ -1,0 +1,150 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f0f4f8;
+  color: #333;
+  min-height: 100vh;
+}
+
+  /* Header Section */
+  .top-bar {
+    width: 100%;
+    background: #333;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2% 2.5%;
+  }
+  
+  .logo-name {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo {
+    width: 100px;
+    height: 100px;
+    margin-right: 10px;
+    border-radius: 100px;
+  }
+
+  .hotel-name {
+    font-size: 3rem;
+    text-transform: uppercase; 
+    font-family: 'Georgia', serif;
+    letter-spacing: 2px;
+    text-align: center;
+    margin-left: 30px;
+  }
+  
+
+/* Bookings Container */
+
+.sticky-heading {
+  position: sticky;
+  top: 0;
+  background-color: #f0f4f8; /* Adjust to match your page's background */
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  color: #2c3e50; /* Choose a vibrant color as desired */
+  padding: 15px 0;
+  z-index: 1000; /* Ensures it stays above other elements */
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); Optional: adds a subtle shadow */
+}
+
+
+.bookings-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+/* Booking Card */
+.booking-card {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 20px;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.booking-info h2 {
+  margin-bottom: 10px;
+  color: #2c3e50;
+}
+
+.booking-info p {
+  margin-bottom: 5px;
+}
+
+/* Booking Actions */
+.booking-actions {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.link {
+  display: inline-block;
+  margin-top: 15px;
+  color: #3498db;
+  font-size: 15px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+.link:hover {
+  color: #1d6fa5;
+  text-decoration: underline;
+}
+
+.modify-btn {
+  background-color: #3498db;
+  color: white;
+}
+
+.modify-btn:hover {
+  background-color: #2980b9;
+}
+
+.cancel-btn {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.cancel-btn:hover {
+  background-color: #c0392b;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .booking-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}
